@@ -4,14 +4,14 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 # Load CSV file
-csv_file = 'C:\\Users\\AKhan\\Documents\\clients.csv'  # Replace with your CSV FULL FILE path
+csv_file = 'C:\\Path\\To\\File\\clients.csv'  # Replace with your CSV FULL FILE path
 clients = pd.read_csv(csv_file)
 
 # Email settings
 smtp_server = 'smtp.gmail.com'  # Gmail SMTP server
 smtp_port = 587  # TLS port
-email_user = 'akhanetskyy@rentalstoremember.com'  # Your Gmail address
-email_password = 'jpvj dmtk sord yvit'  # Your App Password
+email_user = 'User@Gmail.com'  # Your Gmail address
+email_password = 'APP Password goes here'  # Your App Password
 
 with smtplib.SMTP(smtp_server, smtp_port) as server:
     server.starttls()  # Secure the connection
@@ -23,6 +23,7 @@ with smtplib.SMTP(smtp_server, smtp_port) as server:
 
         # Compose the email
         subject = "Design Consults Available!"
+        YourName ='yourname'
         link = '<a href="https://calendly.com/rentalstoremember"> Here is the link to our calendar!</a>'
         body = f"""
         
@@ -37,7 +38,7 @@ Dear {first_name} {last_name},
 <br>
 <br>
 Best, 
-Ginny Hockey  
+{YourName}  
         """
 
         msg = MIMEMultipart()
